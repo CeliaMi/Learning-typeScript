@@ -1,7 +1,7 @@
 # Lista de tareas que nunca haremos...
-# TypeScript + React + Vite
+## TypeScript + React + Vite
 
-Hola, este proyecto es un programa para hacer una lista de tareas✍ "un to do list"
+Este proyecto es un programa para hacer una lista de tareas✍ "un to do list"
 realmente es una excusa para aprender a utilizar React con typeScript
 
 Para correr el proyecto en tu ordenador debes clonarte el repo y poner en consola estos dos comandos👇
