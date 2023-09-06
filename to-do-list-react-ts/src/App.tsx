@@ -1,13 +1,14 @@
 import {useState} from 'react'
 import FormAdd from './components/FormAdd'
-import Todos from './components/Todos'
+import Tasks from './components/Tasks'
+import './App.css'
 
-export interface Todo{
+export interface Task{
   text: string,
   complete: boolean
 }
 
-const initialTodos: Todo[] = [
+const initialTask: Task[] = [
   {
     text: "Learn React",
     complete: false
@@ -21,46 +22,46 @@ const initialTodos: Todo[] = [
 
 const App = () => {
 
-  const [ todos, setTodos ] = useState<Array<Todo>>(initialTodos);
+  const [ tasks, setTasks ] = useState<Array<Task>>(initialTask);
 
-  const addTodo = (text: string) => {
-    const newTodo = {
+  const addTask = (text: string) => {
+    const newTask = {
       text,
       complete: false, 
     };
-    setTodos([...todos, newTodo]);
+    setTasks([...tasks, newTask]);
   }
 
-  const toggleTodo = (selectedTodo: Todo) => {  
-    setTodos(prevTodos => {
-      return prevTodos.map(todo =>{
-        if(todo === selectedTodo) {
+  const toggleTask = (selectedTask: Task) => {  
+    setTasks(prevTask => {
+      return prevTask.map(task =>{
+        if(task === selectedTask) {
           return{
-            ...todo,
-            complete: !todo.complete
+            ...task,
+            complete: !task.complete
   
           }
         }
-        return todo;
+        return task;
       })
     });
   }
 
-  const removeTodo = (selectedTodo: Todo) =>{
-    setTodos((prevTodos) => {
-      return prevTodos.filter((todo) => todo !== selectedTodo);
+  const removeTask = (selectedTask: Task) =>{
+    setTasks((prevTasks) => {
+      return prevTasks.filter((task) => task !== selectedTask);
     })
   }
   
   return (
     <div className="container">
-      <p>To do</p>
-      <FormAdd addTodo={addTodo}/>
+      <h2 className='title'>Things that I should do...someday🙄</h2>
+      <FormAdd addTask={addTask}/>
       <div>
-      <Todos
-      todos={todos}
-      toggleTodo={toggleTodo}
-      removeTodo={removeTodo}
+      <Tasks
+      taks={tasks}
+      toggleTask={toggleTask}
+      removeTask={removeTask}
       />
       </div>
     </div>

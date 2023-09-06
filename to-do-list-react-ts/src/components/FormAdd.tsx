@@ -1,10 +1,10 @@
 import {useState, ChangeEvent} from 'react'
 
-interface PropsAddTodo {
-addTodo: (text: string) => void;
+interface PropsAddTask {
+addTask: (text: string) => void;
 }
 
-const FormAdd = ({addTodo}: PropsAddTodo) => {
+const FormAdd = ({addTask}: PropsAddTask) => {
         const [text, setText] = useState('');
 
         const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -16,23 +16,23 @@ const FormAdd = ({addTodo}: PropsAddTodo) => {
             //validaciones eliminando espacios
             const trimmedText = text.trim();
             if(!trimmedText) return
-            addTodo(trimmedText)
+            addTask(trimmedText)
             setText("");
         }
 
     return (
         <form onSubmit={handleSubmit}>
-            <label htmlFor="todo">
-                To do
+            <label htmlFor="task">
+               New Task👇
             <input 
                 type="text"
-                id="todo"
+                id="task"
                 placeholder='Ingrese tarea'
                 value={text}
                 onChange={handleChange}
                 />
             </label>
-            <button type="submit">Add to do</button>
+            <button type="submit">Add Task</button>
         </form>
   )
 }

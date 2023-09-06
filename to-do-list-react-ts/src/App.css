@@ -1,0 +1,17 @@
+:root{
+    margin:20%;
+    background-color: rgb(34, 32, 32);
+}
+
+button{
+    width:130px;
+}
+
+label{
+    color:rgb(38, 168, 201);
+}
+
+.title{
+    color:white;
+    margin:auto;
+}
