@@ -1,7 +1,8 @@
 import {useState} from 'react'
 import FormAdd from './components/FormAdd'
+import Todos from './components/Todos'
 
-interface Todo{
+export interface Todo{
   text: string,
   complete: boolean
 }
@@ -21,6 +22,7 @@ const initialTodos: Todo[] = [
 const App = () => {
 
   const [ todos, setTodos ] = useState<Array<Todo>>(initialTodos);
+
   const addTodo = (text: string) => {
     const newTodo = {
       text,
@@ -55,22 +57,11 @@ const App = () => {
       <p>To do</p>
       <FormAdd addTodo={addTodo}/>
       <div>
-        {todos.map((todo)=>(
-          <article key={todo.text}>
-            <label htmlFor="todo">
-              <input 
-              type="checkbox"
-               checked={todo.complete} 
-               id="todo"
-               onChange={() => toggleTodo(todo)}
-               />
-              {todo.text}
-            </label>
-            <button type="button" onClick={() => removeTodo(todo)}
-            className= "contrast">Remove</button>
-
-          </article>
-        ))}
+      <Todos
+      todos={todos}
+      toggleTodo={toggleTodo}
+      removeTodo={removeTodo}
+      />
       </div>
     </div>
   )
