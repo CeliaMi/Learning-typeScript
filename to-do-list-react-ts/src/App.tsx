@@ -6,7 +6,7 @@ interface Todo{
   complete: boolean
 }
 
-const initialTodos = [
+const initialTodos: Todo[] = [
   {
     text: "Learn React",
     complete: false
@@ -16,6 +16,7 @@ const initialTodos = [
     complete: false
   }
 ]
+
 
 const App = () => {
 
@@ -27,6 +28,27 @@ const App = () => {
     };
     setTodos([...todos, newTodo]);
   }
+
+  const toggleTodo = (selectedTodo: Todo) => {  
+    setTodos(prevTodos => {
+      return prevTodos.map(todo =>{
+        if(todo === selectedTodo) {
+          return{
+            ...todo,
+            complete: !todo.complete
+  
+          }
+        }
+        return todo;
+      })
+    });
+  }
+
+  const removeTodo = (selectedTodo: Todo) =>{
+    setTodos((prevTodos) => {
+      return prevTodos.filter((todo) => todo !== selectedTodo);
+    })
+  }
   
   return (
     <div className="container">
@@ -36,9 +58,16 @@ const App = () => {
         {todos.map((todo)=>(
           <article key={todo.text}>
             <label htmlFor="todo">
-              <input type="checkbox" checked={todo.complete} id="todo"/>
+              <input 
+              type="checkbox"
+               checked={todo.complete} 
+               id="todo"
+               onChange={() => toggleTodo(todo)}
+               />
               {todo.text}
             </label>
+            <button type="button" onClick={() => removeTodo(todo)}
+            className= "contrast">Remove</button>
 
           </article>
         ))}

@@ -27,7 +27,7 @@ const FormAdd = ({addTodo}: PropsAddTodo) => {
             <input 
                 type="text"
                 id="todo"
-                placeholder='Ingrese todo'
+                placeholder='Ingrese tarea'
                 value={text}
                 onChange={handleChange}
                 />
