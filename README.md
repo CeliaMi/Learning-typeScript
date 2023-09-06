@@ -14,3 +14,5 @@ TypeScript hará que nuestras app sean más seguras… Js con vitaminas 💊
 Tipos primitivos disponibles en JavaScript: `boolean`, `bigint`, `null`, `number`, `string`, `symboly`, `undefined`
 
 TypeScript amplía esta lista con  `any`, `unknown`, `never`y `void`
+
+si TypeScript tiene alguna ventaja sin duda es `👉 La Detección temprana de errores`
